@@ -9,27 +9,26 @@ public class NumberGame {
         while (retry) {
             int guess = rand.nextInt(100) + 1;
             int attempts = 0;
-            System.out.println("Welcome to the Number Guessing World!");
+            System.out.println("Welcomes you to the Number Guessing World!");
             System.out.println("Guess a number between 1 and 100:");
-            while (attempts < 5) {  // You can adjust the number of attempts as needed
+            while (attempts < 5) {
                 int input = sc.nextInt();
                 attempts++;
                 if (input == guess) {
-                    System.out.println("Congratulations, you guessed the number!");
+                    System.out.println("Congratulations Champ, you guessed the number!");
                     System.out.println("Attempts: " + attempts);
-                    score += (6 - attempts);  // Score calculation (more points for fewer attempts)
+                    score += (6 - attempts);
                     break;
                 } else {
                     int difference = Math.abs(input - guess);
                     if (difference == 0) {
                         System.out.println("Congratulations, you guessed the number!");
                         System.out.println("Attempts: " + attempts);
-                        score += (6 - attempts);  // Score calculation (more points for fewer attempts)
+                        score += (6 - attempts);  
                         break;
-                    } else if (Math.abs(input - guess) <=5) {
+                    } else if (difference <=5) {
                         int closeness = input - guess;
-                        System.out.println("You are close to the number. You are closer by " + Math.abs(closeness) +
-                                " (" + (closeness > 0 ? "subtract " : "add ") + Math.abs(closeness)+" to get closer). Try again:");
+                        System.out.println("You are close to the number. You are closer by " + Math.abs(closeness) +". Try again:");
                     } else if (input  < guess) {
                         System.out.println("Your guess is too low. Try again:");
                     } else {
@@ -37,7 +36,6 @@ public class NumberGame {
                     }
                 }
             }
-
             System.out.println("The correct number was: " + guess);
             System.out.println("Your current score: " + score);
 
@@ -45,8 +43,7 @@ public class NumberGame {
             String replay = sc.next().toLowerCase();
             retry = replay.equals("yes");
         }
-
-        System.out.println("Thanks for playing! Your final score is: " + score);
+        System.out.println("Thanks for playing! Your final scorecard: " + score);
         sc.close();
     }
 }
